@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="WIVES INTERNATIONAL JAPAN 2027 ／ MUGEN INFINITY SHOW。わたしの無限の可能性を解き放つ。2027.3.20 神戸・クラブ月世界。">
+<title>MUGEN Infinity Show｜WIVES INTERNATIONAL JAPAN 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Montserrat:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== トークン ===== */
+:root {
+  --paper: #f7f6f4;
+  --white: #ffffff;
+  --ink: #1d1b1f;
+  --ink-soft: #55525a;
+  --gold: #a8875a;
+  --gold-light: #d9c39b;
+  --lav: #b9a6e0;
+  --violet: #6b4fc4;
+  --blue: #2f3fbf;
+  --line: #e4e0da;
+  --night: #0c0e1f;
+  --serif-en: "Bodoni Moda", "Didot", "Times New Roman", serif;
+  --label: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --serif-ja: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+  --sans-ja: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+  --grad: linear-gradient(90deg, var(--blue), var(--violet) 55%, #c07ad8);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif-ja);
+  line-height: 2;
+  letter-spacing: .04em;
+  /* PC・タブレットの左右余白：ハンドブックの斜めの光の帯 */
+  background:
+    linear-gradient(115deg, transparent 0 18%, rgba(217,195,155,.35) 18% 19%, transparent 19% 22%, rgba(217,195,155,.25) 22% 22.6%, transparent 22.6%),
+    linear-gradient(65deg, transparent 0 78%, rgba(185,166,224,.35) 78% 79%, transparent 79% 82%, rgba(185,166,224,.25) 82% 82.6%, transparent 82.6%),
+    linear-gradient(160deg, #fbfaf8, #ecebe8);
+  background-attachment: fixed;
+}
+img { display: block; max-width: 100%; }
+
+/* スマホ幅の誌面を中央に置く */
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: 0 0 60px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+/* ===== 共通パーツ ===== */
+.sec { position: relative; padding: 72px 28px 56px; }
+.label {
+  font-family: var(--label); font-weight: 400; font-size: 11px;
+  letter-spacing: .32em; text-transform: uppercase; color: var(--gold);
+}
+.secno { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+.secno b { font-family: var(--serif-en); font-weight: 400; font-size: 40px; line-height: 1; color: var(--ink); letter-spacing: 0; }
+.secno b::after { content: " /"; color: var(--gold-light); font-size: 28px; }
+.en-h { font-family: var(--serif-en); font-weight: 400; text-transform: uppercase; line-height: 1.05; letter-spacing: .01em; margin: 0; }
+.en-h i { font-style: italic; text-transform: none; }
+.ja-h { font-family: var(--serif-ja); font-weight: 500; font-size: 21px; line-height: 1.7; margin: 14px 0 28px; letter-spacing: .08em; }
+.body p { margin: 0 0 1.4em; font-size: 15px; }
+.rule { width: 56px; height: 1px; background: var(--gold); margin: 28px 0; border: 0; }
+.center { text-align: center; }
+.center .rule { margin-left: auto; margin-right: auto; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.runner {
+  position: absolute; left: 28px; right: 28px; bottom: 18px;
+  font-family: var(--label); font-size: 9px; letter-spacing: .28em; color: #a9a5ad;
+  border-top: 1px solid var(--line); padding-top: 8px;
+}
+/* 斜めの光の帯（セクションの角に置く） */
+.streak { position: absolute; pointer-events: none; width: 220px; height: 220px; }
+.streak::before, .streak::after { content: ""; position: absolute; inset: 0; }
+.streak.tr { top: 0; right: 0; }
+.streak.tr::before { background: linear-gradient(225deg, rgba(217,195,155,.55) 0 8%, transparent 8% 12%, rgba(217,195,155,.3) 12% 13%, transparent 13%); }
+.streak.bl { bottom: 0; left: 0; }
+.streak.bl::before { background: linear-gradient(45deg, rgba(185,166,224,.5) 0 7%, transparent 7% 11%, rgba(185,166,224,.3) 11% 12%, transparent 12%); }
+
+/* 写真と、まだない写真の枠 */
+.photo { position: relative; margin: 0; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo figcaption { font-family: var(--label); font-size: 9px; letter-spacing: .2em; color: var(--ink-soft); padding-top: 8px; }
+.full { margin-left: -28px; margin-right: -28px; }
+
+/* スクロールで静かに浮かび上がる（動きを減らす設定の端末では動かさない） */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* CTA（リンク先未定の空のボタン） */
+.cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-width: 260px; padding: 18px 28px; border: 0; cursor: pointer;
+  font-family: var(--serif-ja); font-size: 16px; letter-spacing: .14em; color: #fff;
+  background: linear-gradient(100deg, #8d6b3f, var(--gold) 45%, #c9ac7c);
+  box-shadow: 0 10px 24px rgba(168,135,90,.3);
+}
+.cta small { font-family: var(--label); font-size: 10px; letter-spacing: .25em; opacity: .85; }
+
+/* ===== 表紙 ===== */
+.cover { position: relative; height: 100svh; min-height: 680px; max-height: 900px; overflow: hidden;
+  background: linear-gradient(180deg, #f4f3f2 0%, #d6d4d5 30%, #a3a1a4 60%, #8e8c8f 100%); }
+.cover img { position: absolute; left: 0; right: 0; bottom: 0; top: 200px; width: 100%; height: calc(100% - 200px); object-fit: cover; object-position: 50% 12%;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 70px); mask-image: linear-gradient(180deg, transparent 0, #000 70px); }
+.cover::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 68%, rgba(12,10,20,.72) 100%); }
+.cover-top { position: absolute; z-index: 2; top: 40px; left: 0; right: 0; text-align: center; }
+.cover-top .label { color: var(--ink); }
+.cover-title { font-family: var(--serif-en); font-weight: 400; margin: 10px 0 0; line-height: .95; }
+.cover-title .m { display: block; font-size: 76px; letter-spacing: .02em; }
+.cover-title .s { display: block; font-size: 30px; font-style: italic; letter-spacing: .04em; margin-top: 4px; }
+.cover-sub { font-size: 12.5px; letter-spacing: .18em; margin-top: 12px; color: var(--ink); }
+.cover-bottom { position: absolute; z-index: 2; left: 0; right: 0; bottom: 34px; text-align: center; color: #fff; }
+.cover-bottom .tim { font-family: var(--serif-en); font-style: italic; font-size: 44px; line-height: 1; }
+.cover-bottom .label { color: #eadcc2; margin-top: 16px; display: block; }
+.cover-bottom .rule { background: #eadcc2; margin: 14px auto; }
+
+.prologue { padding: 80px 28px 72px; text-align: center; }
+.prologue p { font-size: 15px; margin: 0 0 1.8em; line-height: 2.2; }
+.prologue .big { font-size: 19px; font-weight: 500; }
+.prologue .en-h { font-size: 26px; font-style: italic; text-transform: none; margin: 8px 0 18px; }
+
+/* ===== 01 ===== */
+.philo .mantra { font-family: var(--serif-en); font-size: 25px; line-height: 1.35; margin: 8px 0 18px; }
+.philo .mantra i { color: var(--gold); }
+.philo .mantra-ja { font-size: 16px; line-height: 2; margin-bottom: 28px; }
+.philo .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 24px; }
+.philo .tags span { font-family: var(--sans-ja); font-size: 12px; padding: 4px 14px; border: 1px solid var(--gold-light); color: var(--ink-soft); }
+
+/* ===== 02 ===== */
+.universe {
+  text-align: center; padding-top: 96px; padding-bottom: 88px;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 30%, rgba(185,166,224,.35), transparent 70%),
+    radial-gradient(ellipse 50% 45% at 75% 65%, rgba(217,195,155,.3), transparent 70%),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(107,79,196,.08), transparent 70%),
+    var(--paper);
+}
+.universe .en-h.huge { font-size: 54px; line-height: .98; margin: 30px 0 24px; }
+.universe .lines p { margin: 0; font-size: 15px; line-height: 2.3; }
+
+/* ===== 03 ===== */
+.cross { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; margin: 26px 0 30px; text-align: center; }
+.cross .wm { font-family: var(--serif-en); font-size: 17px; line-height: 1.15; letter-spacing: .04em; padding: 18px 6px; border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light); }
+.cross .wm small { display: block; font-family: var(--label); font-size: 8px; letter-spacing: .3em; margin-top: 6px; color: var(--ink-soft); }
+.cross .x { font-family: var(--serif-en); font-size: 30px; color: var(--gold); }
+.award { position: relative; }
+.award .tag { position: absolute; left: 14px; bottom: 30px; color: #fff; font-family: var(--label); font-size: 9px; letter-spacing: .22em; line-height: 1.6; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.award .tag b { display: block; font-family: var(--serif-en); font-weight: 400; font-size: 18px; letter-spacing: .06em; }
+.pull { font-family: var(--serif-ja); font-size: 19px; font-weight: 500; line-height: 1.9; margin: 36px 0 10px; text-align: center; }
+
+/* ===== 04 ===== */
+.exp { background: var(--paper); }
+.cards { display: grid; gap: 22px; margin-top: 10px; }
+.card { background: var(--white); box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+.card .ph, .card img { height: 190px; width: 100%; object-fit: cover; }
+.card .txt { padding: 16px 18px 20px; }
+.card .num { font-family: var(--serif-en); font-size: 26px; line-height: 1; }
+.card .num::after { content: " ⁄"; color: var(--gold-light); }
+.card h3 { font-family: var(--serif-en); font-weight: 400; font-size: 20px; letter-spacing: .06em; margin: 6px 0 0; color: #3e4d2c; }
+.card .ja { font-family: var(--sans-ja); font-size: 11px; color: var(--gold); letter-spacing: .2em; }
+.card p { font-family: var(--sans-ja); font-size: 13.5px; margin: 8px 0 0; color: var(--ink-soft); line-height: 1.8; }
+.cards .card:nth-child(even) { margin-left: 26px; }
+.cards .card:nth-child(odd) { margin-right: 26px; }
+
+/* ===== ロードマップ（宇宙はここだけ） ===== */
+.journey {
+  color: #ecebf5; padding: 84px 24px 72px;
+  background:
+    radial-gradient(1.2px 1.2px at 12% 8%, #fff, transparent), radial-gradient(1px 1px at 78% 14%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 40% 22%, #fff, transparent), radial-gradient(1px 1px at 88% 36%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 22% 44%, #fff, transparent), radial-gradient(1px 1px at 64% 52%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 8% 66%, #fff, transparent), radial-gradient(1px 1px at 52% 74%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 92% 82%, #fff, transparent), radial-gradient(1px 1px at 30% 92%, #fff, transparent),
+    radial-gradient(ellipse 70% 30% at 70% 85%, rgba(107,79,196,.35), transparent 70%),
+    radial-gradient(ellipse 60% 25% at 20% 20%, rgba(47,63,191,.3), transparent 70%),
+    linear-gradient(180deg, #0a0c1c, #12123a 60%, #1d1547);
+}
+.journey .label { color: var(--gold-light); }
+.journey .en-h { font-size: 40px; margin: 10px 0 8px; }
+.journey .lead { font-size: 14px; color: #c9c6dc; margin: 14px 0 44px; }
+.route { position: relative; }
+.route svg.path { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.stop { position: relative; display: flex; align-items: center; gap: 18px; min-height: 150px; }
+.stop:nth-child(odd of .stop) { flex-direction: row; }
+.stop.r { flex-direction: row-reverse; text-align: right; }
+.planet { flex: none; border-radius: 50%; position: relative; z-index: 1; }
+.stop .info { flex: 1; position: relative; z-index: 1; text-shadow: 0 0 10px #0d0f24, 0 0 4px #0d0f24; }
+.stop .pname { font-family: var(--label); font-size: 10px; letter-spacing: .3em; color: var(--gold-light); }
+.stop .what { font-family: var(--serif-ja); font-size: 17px; font-weight: 500; margin: 2px 0; line-height: 1.6; }
+.stop .when { font-family: var(--label); font-size: 12px; letter-spacing: .14em; color: #fff; }
+.stop .note { font-family: var(--sans-ja); font-size: 12px; color: #b7b3cc; line-height: 1.7; }
+.stop.far { opacity: .85; }
+.p1 { width: 34px; height: 34px; background: radial-gradient(circle at 35% 35%, #9aa3b8, #3b4256 70%); }
+.p2 { width: 44px; height: 44px; background: radial-gradient(circle at 35% 35%, #b4a8de, #4a3d86 70%); box-shadow: 0 0 18px rgba(180,168,222,.25); }
+.p3 { width: 64px; height: 64px; background: radial-gradient(circle at 35% 35%, #f2c9e0, #a2558f 70%); box-shadow: 0 0 28px rgba(242,201,224,.35); }
+.p4 { width: 50px; height: 50px; background: radial-gradient(circle at 35% 35%, #bfe0f2, #3a6a9a 70%); box-shadow: 0 0 22px rgba(191,224,242,.3); }
+.p4::after { content: ""; position: absolute; left: -14px; right: -14px; top: 45%; height: 8px; border: 1.5px solid rgba(217,195,155,.7); border-radius: 50%; transform: rotate(-16deg); }
+.p5 { width: 92px; height: 92px; background: radial-gradient(circle at 40% 38%, #fffbe9, #f3d98f 35%, #c4903f 75%); box-shadow: 0 0 40px rgba(243,217,143,.6), 0 0 90px rgba(243,217,143,.3); }
+.p6 { width: 58px; height: 58px; background: radial-gradient(circle at 35% 35%, #d9c8ff, #6b4fc4 55%, #2b1f6b 80%); box-shadow: 0 0 26px rgba(185,166,224,.4); }
+
+/* ===== 05 ===== */
+.camp .dates { font-family: var(--serif-en); font-size: 34px; line-height: 1.1; margin: 4px 0 4px; }
+.camp .dates small { font-family: var(--label); font-size: 11px; letter-spacing: .25em; color: var(--gold); display: block; margin-top: 6px; }
+.subjects { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 30px 0 8px; }
+.subj { background: var(--white); padding: 22px 10px 18px; text-align: center; }
+.subj svg { width: 54px; height: 54px; stroke: var(--gold); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.subj .en { display: block; font-family: var(--label); font-size: 9.5px; letter-spacing: .28em; color: var(--ink-soft); margin-top: 10px; }
+.subj .jp { display: block; font-family: var(--serif-ja); font-size: 15px; font-weight: 500; }
+
+/* ===== 06 ===== */
+.show { background: var(--paper); }
+.show .when { display: flex; align-items: center; gap: 16px; margin: 28px 0; }
+.show .when .d { font-family: var(--serif-en); font-size: 46px; line-height: 1; }
+.show .when .v { font-family: var(--serif-ja); font-size: 14px; line-height: 1.7; border-left: 1px solid var(--gold); padding-left: 16px; }
+.show .when .v span { font-family: var(--label); font-size: 10px; letter-spacing: .25em; color: var(--gold); display: block; }
+.quote { text-align: center; margin: 30px 0; padding: 26px 10px; border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light); }
+.quote small { font-family: var(--label); font-size: 9.5px; letter-spacing: .25em; color: var(--gold); display: block; margin-bottom: 10px; }
+.quote .q { display: block; font-size: 19px; font-weight: 500; }
+
+/* ===== 07 ===== */
+.msg-photo { position: relative; height: 420px; margin: 0 -28px 36px; overflow: hidden; background: #f0a83a; }
+.msg-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; }
+.msg-photo .en-h { position: absolute; left: 24px; top: 26px; font-size: 32px; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.2); }
+.sign { margin-top: 30px; text-align: right; }
+.sign .name { font-size: 20px; letter-spacing: .3em; }
+.sign .label { display: block; color: var(--ink-soft); line-height: 1.9; }
+.motto { font-family: var(--serif-en); font-style: italic; font-size: 24px; line-height: 1.3; text-align: center; margin: 40px 0 0; }
+
+/* ===== 08 ===== */
+.entry { background: var(--paper); }
+.entry .ttl { font-family: var(--serif-en); font-size: 18px; line-height: 1.4; letter-spacing: .08em; text-align: center; margin: 0 0 30px; }
+.block { background: var(--white); padding: 22px 20px; margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,.04); }
+.block .bh { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.block .bh svg { width: 30px; height: 30px; stroke: var(--gold); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.block .bh b { font-family: var(--serif-ja); font-size: 17px; font-weight: 500; }
+.block .bh span { font-family: var(--label); font-size: 9px; letter-spacing: .25em; color: var(--gold); display: block; }
+.block dl { margin: 0; font-family: var(--sans-ja); font-size: 14px; line-height: 1.8; }
+.block dt { color: var(--ink-soft); font-size: 11.5px; margin-top: 8px; }
+.block dd { margin: 0; }
+.block dd .sub { display: block; font-size: 12px; color: var(--ink-soft); margin-top: 4px; line-height: 1.7; }
+.price { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; align-items: baseline; margin: 6px 0 12px; }
+.price .k { font-family: var(--sans-ja); font-size: 12.5px; }
+.price .k.first { color: var(--violet); font-weight: 500; }
+.price .k small { display: block; font-family: var(--label); font-size: 9.5px; letter-spacing: .08em; color: var(--ink-soft); font-weight: 400; }
+.price .v { font-family: var(--serif-en); font-size: 28px; line-height: 1.2; }
+.price .v small { font-family: var(--sans-ja); font-size: 11px; margin-left: 4px; }
+.fine { font-family: var(--sans-ja); font-size: 12px; color: var(--ink-soft); line-height: 1.8; margin: 4px 0 0; padding-left: 1em; text-indent: -1em; }
+
+/* ===== 結び ===== */
+.finale { text-align: center; padding: 100px 28px 90px; }
+.finale .en-h { font-size: 30px; margin: 0 0 6px; }
+.finale .en-h.i { font-style: italic; text-transform: none; }
+.finale .lines { font-size: 17px; line-height: 2.2; margin: 34px 0; }
+.finale .last { font-size: 16px; font-weight: 500; margin-bottom: 36px; }
+
+footer { background: #18161b; color: #b9b5be; padding: 36px 28px 40px; font-family: var(--sans-ja); font-size: 12px; line-height: 2; }
+footer .label { color: var(--gold-light); display: block; margin-bottom: 12px; }
+footer a { color: inherit; }
+
+@media (max-width: 360px) {
+  .cover-title .m { font-size: 62px; }
+  .universe .en-h.huge { font-size: 44px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- ================= 表紙 ================= -->
+<header class="cover" id="top">
+  <img src="images/mai_a.webp" alt="WIVES INTERNATIONAL 2026 THE WINNER 三好 舞">
+  <div class="cover-top">
+    <span class="label">Wives International Japan <span class="grad-text" style="font-weight:500">2027</span></span>
+    <h1 class="cover-title"><span class="m">MUGEN</span><span class="s">Infinity Show</span></h1>
+    <p class="cover-sub">〜 わたしの無限の可能性を解き放つ 〜</p>
+  </div>
+  <div class="cover-bottom">
+    <div class="tim">This is me.</div>
+    <hr class="rule">
+    <span class="label">2027.3.20 SAT ｜ KOBE</span>
+  </div>
+</header>
+
+<section class="prologue">
+  <p class="big">誰かになるためじゃない。<br>本来のわたしに還るために。</p>
+  <p>誰かと比べる必要なんてない。<br>誰かに認められるためでもない。</p>
+  <p>これまで歩んできた人生も、<br>乗り越えてきた経験も、<br>まだ知らない自分の可能性も。</p>
+  <p class="big">そのすべてが、あなたの美しさ。</p>
+  <hr class="rule">
+  <p>これは、<br><span class="big">コンテストじゃないコンテスト。</span></p>
+  <p>一人ひとりの無限の可能性を解き放つ、<br>新しいエンターテインメント。</p>
+  <p class="en-h">Be the star of your own life.</p>
+  <p class="big" style="margin-bottom:.6em">さあ、あなたの人生の主役になろう。</p>
+  <span class="label">2027.3.20 SAT ｜ 神戸・クラブ月世界</span>
+</section>
+
+<!-- ================= 01 ================= -->
+<section class="sec philo" id="s01">
+  <div class="streak tr"></div>
+  <div class="secno"><b>01</b><span class="label">Our Philosophy</span></div>
+  <h2 class="ja-h">わたしたちが大切にしていること</h2>
+  <p class="mantra">LOVE YOURSELF.<br>EXPRESS YOURSELF.<br><i>Unlock your infinite potential.</i></p>
+  <p class="mantra-ja">自分を愛する。<br>自分を表現する。<br>無限の可能性を解き放つ。</p>
+  <figure class="photo full"><img src="images/philosophy_friends.webp" alt="仲間と笑い合う三好 舞" style="height:380px;object-position:50% 42%"></figure>
+  <div class="body" style="margin-top:32px">
+    <div class="tags"><span>年齢</span><span>肩書き</span><span>外見</span><span>経験</span></div>
+    <p>そんな枠に、自分の可能性を閉じ込める必要はありません。</p>
+    <p>自分と向き合い、認め、受け入れ、愛する。</p>
+    <p>そして、自分の可能性を信じ、挑戦する。</p>
+    <p>自分が輝くことが、誰かを勇気づける。</p>
+    <p>その輝きが、愛と幸せの連鎖を生み出します。</p>
+  </div>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
+</section>
+
+<!-- ================= 02 ================= -->
+<section class="sec universe" id="s02">
+  <div class="secno" style="justify-content:center"><b>02</b><span class="label">Infinite Universe</span></div>
+  <h2 class="ja-h">可能性は、<br>宇宙のように無限大。</h2>
+  <div class="lines">
+    <p>果てしなく広がる宇宙。</p>
+    <p>それは、私たち一人ひとりの可能性と同じ。</p>
+    <hr class="rule">
+    <p>まだ知らない自分がいる。</p>
+    <p>まだ気づいていない魅力がある。</p>
+    <p>まだ挑戦していない未来がある。</p>
+  </div>
+  <p class="en-h huge">You are<br><i class="grad-text">infinite.</i></p>
+  <p style="font-size:16px;font-weight:500;margin:0">あなたの可能性に、限界なんてない。</p>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
+</section>
+
+<!-- ================= 03 ================= -->
+<section class="sec" id="s03">
+  <div class="streak tr"></div>
+  <div class="secno"><b>03</b><span class="label">Wives × Mugen</span></div>
+  <h2 class="ja-h">ふたつの想いが、重なる。</h2>
+  <div class="cross">
+    <div class="wm">WIVES<br>INTERNATIONAL<small>Thailand</small></div>
+    <div class="x">×</div>
+    <div class="wm">MUGEN<br>EntertainmenT<small>Japan</small></div>
+  </div>
+  <figure class="photo full"><img src="images/wives_mugen.webp" alt="ステージで手を合わせる三好 舞と WIVES INTERNATIONAL 本部の代表" style="height:300px;object-position:58% 30%"><figcaption style="padding-left:28px">WIVES INTERNATIONAL 2026 ／ BANGKOK</figcaption></figure>
+  <div class="body">
+    <p>ふたつが大切にしている想いは、驚くほど一致していました。</p>
+    <p>内面からあふれる美しさ。<br>周りの人を明るくするポジティブなエネルギー。</p>
+    <p>役割や肩書きにとらわれず、本来の姿の自分を認め、受け入れ、愛すること。</p>
+    <p>そして、自分の無限の可能性を解き放つこと。</p>
+  </div>
+  <figure class="photo full award">
+    <img src="images/stage_a.webp" alt="WIVES INTERNATIONAL 2026 決勝の表彰式" style="height:280px">
+    <div class="tag"><b>MAI MIYOSHI</b>THE WINNER<br>WIVES INTERNATIONAL 2026</div>
+    <figcaption style="padding-left:28px">WIVES INTERNATIONAL 2026 ／ BANGKOK</figcaption>
+  </figure>
+  <div class="body" style="margin-top:28px">
+    <p>MUGENを通じて「自己表現・自己解放」をテーマに活動してきた三好舞は、2026年WIVES世界大会で総合グランプリを受賞しました。</p>
+    <p>その経験を通して、WIVESの理念とMUGENが目指す世界が深く重なっていることを確信しました。</p>
+    <p>ふたつの想いが重なり、日本から新しいコンテストが始まります。</p>
+  </div>
+  <p class="pull">自己解放の、その先へ。</p>
+  <p class="center" style="font-size:15px">MUGENならではのエンターテインメントと愛を込めて、<br>WIVES INTERNATIONAL JAPANを開催します。</p>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
+</section>
+
+<!-- ================= 04 ================= -->
+<section class="sec exp" id="s04">
+  <div class="streak bl"></div>
+  <div class="secno"><b>04</b><span class="label">The Experience</span></div>
+  <h2 class="en-h" style="font-size:34px">More than<br><i>a contest</i></h2>
+  <h3 class="ja-h">この挑戦の先に待つ、<br>自分を信じられるあなた。</h3>
+  <div class="cards">
+    <article class="card"><img src="images/exp_selflove.webp" alt="手鏡を見て微笑む女性" style="object-position:50% 30%"><div class="txt"><span class="num">01</span><h3>SELF LOVE</h3><span class="ja">自分を愛する</span><p>自分自身を知り、認め、受け入れる。</p></div></article>
+    <article class="card"><img src="images/exp_expression.webp" alt="ステージで笑顔を見せる三好 舞" style="object-position:50% 25%"><div class="txt"><span class="num">02</span><h3>SELF EXPRESSION</h3><span class="ja">自分を表現する</span><p>自分の想いや個性を自由に表現する。</p></div></article>
+    <article class="card"><img src="images/exp_transformation.webp" alt="ウォーキングのレッスン" style="object-position:55% 40%"><div class="txt"><span class="num">03</span><h3>TRANSFORMATION</h3><span class="ja">変化と成長</span><p>新しい挑戦を通して、自分の可能性を広げる。</p></div></article>
+    <article class="card"><img src="images/exp_connection.webp" alt="肩を寄せ合って笑う仲間たち" style="object-position:50% 38%"><div class="txt"><span class="num">04</span><h3>CONNECTION</h3><span class="ja">つながり</span><p>互いを認め、応援し合える仲間と出会う。</p></div></article>
+    <article class="card"><img src="images/exp_impact.webp" alt="大会後に喜び合う関係者たち" style="object-position:50% 50%"><div class="txt"><span class="num">05</span><h3>POSITIVE IMPACT</h3><span class="ja">幸せの連鎖</span><p>自分の輝きが、誰かの勇気になる。</p></div></article>
+  </div>
+  <p class="pull">あなたの輝きが、誰かの勇気となる。</p>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
+</section>
+
+<!-- ================= ロードマップ ================= -->
+<section class="journey" id="journey">
+  <div class="center">
+    <span class="label">Journey Map</span>
+    <h2 class="en-h">Your Journey<br><i>to shine</i></h2>
+    <p class="lead">無料面談から日本大会まで。<br>ひとつずつ惑星をめぐりながら、<br>あなたは自分の光を見つけていきます。</p>
+  </div>
+  <div class="route" id="route">
+    <svg class="path" id="routePath" aria-hidden="true"></svg>
+    <div class="stop"><div class="planet p1"></div><div class="info"><div class="pname">Departure</div><div class="what">無料面談</div><div class="when">随時</div><div class="note">想いや不安を聞かせてください。参加条件や費用もここでご案内します。一次募集をご希望の方は1月8日までにお申し込みください。</div></div></div>
+    <div class="stop r"><div class="planet p2"></div><div class="info"><div class="pname">Boarding</div><div class="what">エントリー</div><div class="when">一次募集 1.15 ／ 二次募集 2.2</div><div class="note">無料面談・お申し込み・ご入金までが完了した時点で、エントリーとなります。</div></div></div>
+    <div class="stop"><div class="planet p3"></div><div class="info"><div class="pname">Planet Bloom</div><div class="what">MUGEN BLOOM CAMP</div><div class="when">2027.2.13 SAT – 2.14 SUN</div><div class="note">1泊2日。自分を知り、自分を好きになる2日間。</div></div></div>
+    <div class="stop r"><div class="planet p4"></div><div class="info"><div class="pname">Orbit</div><div class="what">フォローアップ Zoom</div><div class="when">2月 – 3月</div><div class="note">進捗の確認や、大会に向けた心構えのアドバイス。2回（一次募集の方は3回）。</div></div></div>
+    <div class="stop"><div class="planet p5"></div><div class="info"><div class="pname">Shine</div><div class="what">MUGEN INFINITY SHOW</div><div class="when">2027.3.20 SAT</div><div class="note">日本大会。神戸・クラブ月世界。</div></div></div>
+    <div class="stop r far"><div class="planet p6"></div><div class="info"><div class="pname">Beyond</div><div class="what">WIVES INTERNATIONAL 世界大会</div><div class="when">2027.5.31 – 6.7 ／ BANGKOK</div><div class="note">日本大会出場者から1〜3名程度に出場権。</div></div></div>
+  </div>
+</section>
+
+<!-- ================= 05 ================= -->
+<section class="sec camp" id="s05">
+  <div class="streak tr"></div>
+  <div class="secno"><b>05</b><span class="label">Mugen Bloom Camp</span></div>
+  <h2 class="ja-h">わたしが花開く、2日間。</h2>
+  <p class="dates">2027.2.13 <span style="font-size:22px">SAT</span> –<br>2.14 <span style="font-size:22px">SUN</span><small>1 NIGHT ・ 2 DAYS</small></p>
+  <figure class="photo full" style="margin-top:28px"><img src="images/training.webp" alt="マインドのレッスンで輪になって座る参加者たち" style="height:240px"><figcaption style="padding-left:28px">WIVES INTERNATIONAL 2026 ／ TRAINING</figcaption></figure>
+  <div class="body" style="margin-top:28px">
+    <p>このビューティキャンプは、<br>美しくなるためだけの2日間じゃない。<br><b style="font-weight:600">自分を知り、自分を好きになるための2日間。</b></p>
+    <p>さまざまな体験を通して、自分の魅力や可能性に気づき、本来の自分として輝く表現を見つけていきます。</p>
+    <p>競い合うのではなく、認めて高め合うキャンプです。</p>
+  </div>
+  <div class="subjects">
+    <div class="subj">
+      <svg viewBox="0 0 64 64"><circle cx="34" cy="10" r="5"/><path d="M33 16 L29 34 L36 46 L38 58"/><path d="M29 34 L22 46 L16 56"/><path d="M32 22 L24 28 L22 36"/><path d="M33 22 L41 28 L44 34"/><path d="M8 60 H56" stroke-dasharray="2 4"/></svg>
+      <span class="jp">ウォーキング</span><span class="en">Walking</span>
+    </div>
+    <div class="subj">
+      <svg viewBox="0 0 64 64"><rect x="24" y="6" width="16" height="26" rx="8"/><path d="M18 26 a14 14 0 0 0 28 0"/><path d="M32 40 V52"/><path d="M24 54 H40"/><path d="M50 16 q4 6 0 12"/><path d="M55 12 q7 10 0 20"/></svg>
+      <span class="jp">スピーチ</span><span class="en">Speech</span>
+    </div>
+    <div class="subj">
+      <svg viewBox="0 0 64 64"><circle cx="30" cy="10" r="5"/><path d="M30 16 L32 34"/><path d="M30 20 L18 10"/><path d="M31 21 L44 26 L52 20"/><path d="M32 34 L26 46 L28 58"/><path d="M32 34 L44 40 L54 36"/><path d="M12 44 q3-3 6 0" /><path d="M52 52 q3-3 6 0"/></svg>
+      <span class="jp">ダンス</span><span class="en">Dance</span>
+    </div>
+    <div class="subj">
+      <svg viewBox="0 0 64 64"><rect x="22" y="34" width="20" height="24" rx="2"/><path d="M24 34 V24 H40 V34"/><path d="M27 24 V14 L37 8 V24"/><path d="M48 14 l2 -4 l2 4 l4 2 l-4 2 l-2 4 l-2 -4 l-4 -2 z"/></svg>
+      <span class="jp">メイク</span><span class="en">Make-up</span>
+    </div>
+    <div class="subj">
+      <svg viewBox="0 0 64 64"><path d="M32 14 C26 22 26 32 32 40 C38 32 38 22 32 14 Z"/><path d="M32 40 C24 40 16 34 14 24 C22 24 28 30 32 40"/><path d="M32 40 C40 40 48 34 50 24 C42 24 36 30 32 40"/><path d="M14 48 H50"/><path d="M22 54 H42"/></svg>
+      <span class="jp">マインド</span><span class="en">Mind</span>
+    </div>
+    <div class="subj">
+      <svg viewBox="0 0 64 64"><rect x="8" y="20" width="48" height="32" rx="4"/><path d="M22 20 L26 12 H38 L42 20"/><circle cx="32" cy="36" r="10"/><circle cx="32" cy="36" r="4"/><circle cx="48" cy="27" r="1.5"/></svg>
+      <span class="jp">撮影</span><span class="en">Photo Shoot</span>
+    </div>
+  </div>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
+</section>
+
+<!-- ================= 06 ================= -->
+<section class="sec show" id="s06">
+  <div class="streak bl"></div>
+  <div class="secno"><b>06</b><span class="label">Mugen Infinity Show</span></div>
+  <h2 class="ja-h">コンテストじゃないコンテスト。</h2>
+  <figure class="photo full"><img src="images/show_stage.webp" alt="WIVES INTERNATIONAL 2026 決勝のステージに並ぶ出場者たち" style="height:260px;object-position:50% 65%"><figcaption style="padding-left:28px">WIVES INTERNATIONAL 2026 世界大会のステージ</figcaption></figure>
+  <div class="when">
+    <div class="d">3.20</div>
+    <div class="v"><span>2027 ・ SATURDAY</span>神戸・クラブ月世界</div>
+  </div>
+  <div class="body">
+    <p>ここで繰り広げられるのは、従来のコンテストの枠を超えたエンターテインメント。</p>
+    <p>外見の美しさだけでなく、個性、表現力、考え方、そして周囲への影響力を大切にします。</p>
+  </div>
+  <div class="quote">
+    <small>WIVES INTERNATIONAL の理念である</small>
+    <span class="q">役割を脱ぎ捨てた本来のあなた自身</span>
+  </div>
+  <div class="body"><p>を尊重し、一人ひとりの魅力を多角的に評価します。</p></div>
+  <p class="pull">誰もが、自分の人生の主役。</p>
+  <figure class="photo full" style="margin-top:28px"><img src="images/venue_stage.webp" alt="日本大会の会場 クラブ月世界のステージ" style="height:240px;object-position:50% 50%"><figcaption style="padding-left:28px">会場：LiveHall クラブ月世界（神戸・三宮）</figcaption></figure>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
+</section>
+
+<!-- ================= 07 ================= -->
+<section class="sec" id="s07">
+  <div class="secno"><b>07</b><span class="label">Message from Mai</span></div>
+  <div class="msg-photo">
+    <img src="images/mai_c.webp" alt="三好 舞">
+  </div>
+  <h2 class="ja-h">自分の人生を、<br>自分として生きる。</h2>
+  <div class="body">
+    <p>私は、世界大会への挑戦を通して、人生が大きく変わりました。</p>
+    <p>自分にはできないと思っていたことに挑戦し、蓋をしていた本来の自分に出会いました。</p>
+    <p>そして、自分の中に眠っていた自分の輝く姿が、誰かの勇気になる。</p>
+    <p>そんな開花が、私の人生の最大の転機でした。</p>
+    <p>この経験を、もっと多くの女性に届けたい。</p>
+    <p>一人ひとりが自分の可能性を信じ、自己表現できる世界。</p>
+    <p>そして、愛と幸せが広がる未来を、みなさんと一緒に創っていきたいと思っています。</p>
+  </div>
+  <p class="motto">Be unapologetically<br>yourself.</p>
+  <div class="sign">
+    <div class="name">三好 舞</div>
+    <span class="label">Wives International Japan<br>National Director</span>
+  </div>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
+</section>
+
+<!-- ================= 08 ================= -->
+<section class="sec entry" id="s08">
+  <div class="secno"><b>08</b><span class="label">Entry Information</span></div>
+  <h2 class="ja-h">募集概要</h2>
+  <p class="ttl">WIVES INTERNATIONAL JAPAN 2027<br><i>MUGEN Infinity Show</i></p>
+
+  <div class="block">
+    <div class="bh">
+      <svg viewBox="0 0 32 32"><path d="M4 24 L6 10 L12 16 L16 6 L20 16 L26 10 L28 24 Z"/><path d="M4 28 H28"/></svg>
+      <div><span>JAPAN FINAL</span><b>日本大会</b></div>
+    </div>
+    <dl>
+      <dt>日時</dt><dd>2027年3月20日（土）</dd>
+      <dt>会場</dt><dd>神戸・クラブ月世界</dd>
+      <dt>参加資格</dt><dd>日本国籍を有する女性、2027年3月20日時点で満27歳以上であること<span class="sub">既婚・未婚・離婚経験、お子さまの有無は問いません。身長・体重の制限もありません。</span></dd>
+      <dt>審査</dt><dd>審査を行い、グランプリを選出します。</dd>
+    </dl>
+  </div>
+
+  <div class="block">
+    <div class="bh">
+      <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="3"/><path d="M16 13 C13 8 14 4 16 3 C18 4 19 8 16 13"/><path d="M19 16 C24 13 28 14 29 16 C28 18 24 19 19 16"/><path d="M16 19 C19 24 18 28 16 29 C14 28 13 24 16 19"/><path d="M13 16 C8 19 4 18 3 16 C4 14 8 13 13 16"/></svg>
+      <div><span>MUGEN BLOOM CAMP</span><b>ビューティキャンプ</b></div>
+    </div>
+    <dl>
+      <dt>日程</dt><dd>2027年2月13日（土）〜14日（日）</dd>
+      <dt>期間</dt><dd>1泊2日</dd>
+    </dl>
+  </div>
+
+  <div class="block" id="fee">
+    <div class="bh">
+      <svg viewBox="0 0 32 32"><path d="M6 12 L11 5 H21 L26 12 L16 28 Z"/><path d="M6 12 H26"/><path d="M11 5 L14 12 L16 28 L18 12 L21 5"/></svg>
+      <div><span>ENTRY FEE</span><b>参加費</b></div>
+    </div>
+    <div class="price">
+      <span class="k first">一次募集<small>2027.1.15 FRI まで</small></span><span class="v">198,000<small>円（税込）</small></span>
+      <span class="k">二次募集<small>2027.2.2 TUE まで</small></span><span class="v">220,000<small>円（税込）</small></span>
+    </div>
+    <p class="fine">※大会に向けての個人プロデュース（衣装コーディネート）、フォローアップZoom2回、合宿講座、コンテスト参加費を含む。</p>
+    <p class="fine">※衣装の購入・レンタル費用は含まれません。個人プロデュースの内容は、一人ひとりに合わせて無料面談でご案内します。</p>
+    <p class="fine">※一次募集での参加特典として、フォローアップZoomが更に1回受講できます。</p>
+    <p class="fine" style="margin-top:12px">※エントリーは、無料面談・お申し込み・ご入金（着金）がすべて完了した日を基準とします。</p>
+    <p class="fine">※一次募集をご希望の方は、2027年1月8日（金）までに無料面談をお申し込みください。</p>
+    <p class="fine">※一次募集の期限までに着金が確認できない場合は、二次募集の参加費となります。</p>
+    <p class="fine">※二次募集の期限（2027年2月2日）をもって募集を締め切ります。</p>
+  </div>
+
+  <div class="block">
+    <div class="bh">
+      <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M4 16 H28"/><path d="M16 4 C10 10 10 22 16 28 C22 22 22 10 16 4"/></svg>
+      <div><span>WORLD FINAL</span><b>世界大会</b></div>
+    </div>
+    <dl>
+      <dt>日程・開催地</dt><dd>2027年5月31日〜6月7日　タイ・バンコク開催予定</dd>
+      <dt>出場権</dt><dd>日本大会出場者から1〜3名程度に出場権が与えられます。<br>日本大会のグランプリ獲得者は、世界大会への渡航費・滞在費・大会参加費を MUGEN が負担します。<br>グランプリ以外の出場権獲得者の渡航費・滞在費・大会参加費は、ご本人の負担となります。</dd>
+    </dl>
+    <p class="fine" style="margin-top:10px">※負担する費用の範囲など詳細は、出場権が決まった際にご案内します。</p>
+    <p class="fine">※開催日に有効なパスポートが必要です。</p>
+    <p class="fine">※応募資格、審査基準、世界大会出場条件、別途費用などは無料面談でご案内しています。</p>
+  </div>
+</section>
+
+<!-- ================= 結び ================= -->
+<section class="finale" id="entry">
+  <h2 class="en-h">The universe is in you.</h2>
+  <p class="en-h i" style="font-size:24px;margin-top:18px">This is me.</p>
+  <p class="en-h i grad-text" style="font-size:34px;margin-top:10px">I am infinite.</p>
+  <p class="lines">もっと自由に。<br>もっと大胆に。</p>
+  <p class="last">さあ、あなたの無限の可能性を解き放とう。</p>
+  <a class="cta" href="#" data-cta>まずは無料面談<small>FREE CONSULTATION</small></a>
+</section>
+
+<footer>
+  <span class="label">MUGEN Infinity Show</span>
+  主催：MUGEN<br>
+  運営：株式会社Mai World<br>
+  特定商取引法に基づく表記（準備中）
+</footer>
+
+</div>
+
+<script>
+// 無料面談のリンク先（未定のあいだは空）
+const FORM_URL = "";
+
+document.querySelectorAll('[data-cta]').forEach(a => {
+  if (FORM_URL && a.classList.contains('cta')) { a.href = FORM_URL; a.target = '_blank'; a.rel = 'noopener'; }
+  else a.addEventListener('click', e => e.preventDefault());
+});
+
+
+// スクロールで浮かび上がる要素（見出し・本文・写真・カード）
+const revealTargets = document.querySelectorAll('.secno, .ja-h, .body p, .photo, .card, .subjects, .block, .pull, .quote, .motto, .finale > *');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { rootMargin: '0px 0px -8% 0px' });
+  revealTargets.forEach(el => { el.classList.add('reveal'); io.observe(el); });
+}
+
+// ロードマップ：惑星を一本の航路でつなぐ
+function drawRoute() {
+  const route = document.getElementById('route');
+  const svg = document.getElementById('routePath');
+  const box = route.getBoundingClientRect();
+  const pts = [...route.querySelectorAll('.planet')].map(p => {
+    const r = p.getBoundingClientRect();
+    return [r.left - box.left + r.width / 2, r.top - box.top + r.height / 2];
+  });
+  const seg = (a, b) => {
+    const my = (a[1] + b[1]) / 2;
+    return `M${a[0]},${a[1]} C${a[0]},${my} ${b[0]},${my} ${b[0]},${b[1]}`;
+  };
+  let solid = '';
+  for (let i = 0; i < pts.length - 2; i++) solid += seg(pts[i], pts[i + 1]) + ' ';
+  const dashed = seg(pts[pts.length - 2], pts[pts.length - 1]);
+  svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+  svg.innerHTML =
+    `<defs><linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d93b0" stop-opacity=".5"/><stop offset="1" stop-color="#f3d98f"/></linearGradient></defs>` +
+    `<path d="${solid}" fill="none" stroke="url(#rg)" stroke-width="1.5"/>` +
+    `<path d="${dashed}" fill="none" stroke="#b9a6e0" stroke-width="1.5" stroke-dasharray="3 6"/>`;
+}
+window.addEventListener('load', drawRoute);
+window.addEventListener('resize', drawRoute);
+document.fonts && document.fonts.ready.then(drawRoute);
+</script>
+</body>
+</html>
