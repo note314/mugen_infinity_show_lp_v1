@@ -112,14 +112,21 @@ img { display: block; max-width: 100%; }
 /* ===== 表紙 ===== */
 .cover { position: relative; height: 100svh; min-height: 680px; max-height: 900px; overflow: hidden;
   background: linear-gradient(180deg, #f4f3f2 0%, #d6d4d5 30%, #a3a1a4 60%, #8e8c8f 100%); }
-.cover img { position: absolute; left: 0; right: 0; bottom: 0; top: 200px; width: 100%; height: calc(100% - 200px); object-fit: cover; object-position: 50% 12%;
+.cover-photo { position: absolute; left: 0; right: 0; bottom: 0; top: 200px; overflow: hidden;
   -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 70px); mask-image: linear-gradient(180deg, transparent 0, #000 70px); }
+.cover-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 53% 50%; transform: scale(1.45); transform-origin: 53% 74%; }
 .cover::after { content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 68%, rgba(12,10,20,.72) 100%); }
 .cover-top { position: absolute; z-index: 2; top: 40px; left: 0; right: 0; text-align: center; }
 .cover-top .label { color: var(--ink); }
 .cover-title { font-family: var(--serif-en); font-weight: 400; margin: 10px 0 0; line-height: .95; }
 .cover-title .m { display: block; font-size: 76px; letter-spacing: .02em; }
+/* 表紙の MUGEN：5文字全体に1枚の虹をかぶせる（対応していないブラウザでは黒文字のまま） */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .rainbow { display: inline-block; color: transparent; -webkit-background-clip: text; background-clip: text;
+    background-image: linear-gradient(100deg, #ff4d6d, #ff9f1c, #ffd60a, #38d66b, #22b8f0, #5b5bf7, #c44df2, #ff4d6d);
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,.28)); }
+}
 .cover-title .s { display: block; font-size: 30px; font-style: italic; letter-spacing: .04em; margin-top: 4px; }
 .cover-sub { font-size: 12.5px; letter-spacing: .18em; margin-top: 12px; color: var(--ink); }
 .cover-bottom { position: absolute; z-index: 2; left: 0; right: 0; bottom: 34px; text-align: center; color: #fff; }
@@ -135,6 +142,14 @@ img { display: block; max-width: 100%; }
 /* ===== 01 ===== */
 .philo .mantra { font-family: var(--serif-en); font-size: 25px; line-height: 1.35; margin: 8px 0 18px; }
 .philo .mantra i { color: var(--gold); }
+/* 01「Unlock your infinite potential.」：1行に収め（この行だけ画面幅に合わせて縮める・最大25px）、フレーズ全体に虹を2周 */
+.philo .mantra .rainbow-line { white-space: nowrap; font-size: min(25px, calc((100vw - 56px) / 14.6)); }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .philo .mantra .rainbow-line { color: transparent; -webkit-background-clip: text; background-clip: text;
+    background-image: linear-gradient(90deg, #ff4d6d, #ff9f1c, #ffd60a, #38d66b, #22b8f0, #5b5bf7, #c44df2, #ff4d6d);
+    background-repeat: repeat-x; background-size: 50% 100%;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,.28)); }
+}
 .philo .mantra-ja { font-size: 16px; line-height: 2; margin-bottom: 28px; }
 .philo .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 24px; }
 .philo .tags span { font-family: var(--sans-ja); font-size: 12px; padding: 4px 14px; border: 1px solid var(--gold-light); color: var(--ink-soft); }
@@ -236,7 +251,8 @@ img { display: block; max-width: 100%; }
 .msg-photo .en-h { position: absolute; left: 24px; top: 26px; font-size: 32px; color: #fff; text-shadow: 0 2px 14px rgba(0,0,0,.2); }
 .sign { margin-top: 30px; text-align: right; }
 .sign .name { font-size: 20px; letter-spacing: .3em; }
-.sign .label { display: block; color: var(--ink-soft); line-height: 1.9; }
+.sign .label { display: block; color: var(--ink-soft); line-height: 1.9; margin-bottom: 6px; }
+.motto-ja { font-size: 15px; font-weight: 500; letter-spacing: .12em; text-align: center; margin: 14px 0 0; }
 .motto { font-family: var(--serif-en); font-style: italic; font-size: 24px; line-height: 1.3; text-align: center; margin: 40px 0 0; }
 
 /* ===== 08 ===== */
@@ -282,14 +298,14 @@ footer a { color: inherit; }
 
 <!-- ================= 表紙 ================= -->
 <header class="cover" id="top">
-  <img src="images/mai_a.webp" alt="WIVES INTERNATIONAL 2026 THE WINNER 三好 舞">
+  <div class="cover-photo"><img src="images/cover_award.webp" alt="WIVES INTERNATIONAL 2026 決勝の表彰式で並ぶ出場者たちと三好 舞"></div>
   <div class="cover-top">
     <span class="label">Wives International Japan <span class="grad-text" style="font-weight:500">2027</span></span>
-    <h1 class="cover-title"><span class="m">MUGEN</span><span class="s">Infinity Show</span></h1>
+    <h1 class="cover-title"><span class="m"><span class="rainbow">MUGEN</span></span><span class="s">Infinity Show</span></h1>
     <p class="cover-sub">〜 わたしの無限の可能性を解き放つ 〜</p>
   </div>
   <div class="cover-bottom">
-    <div class="tim">This is me.</div>
+    <div class="tim">THIS IS ME.</div>
     <hr class="rule">
     <span class="label">2027.3.20 SAT ｜ KOBE</span>
   </div>
@@ -313,9 +329,9 @@ footer a { color: inherit; }
   <div class="streak tr"></div>
   <div class="secno"><b>01</b><span class="label">Our Philosophy</span></div>
   <h2 class="ja-h">わたしたちが大切にしていること</h2>
-  <p class="mantra">LOVE YOURSELF.<br>EXPRESS YOURSELF.<br><i>Unlock your infinite potential.</i></p>
+  <p class="mantra">LOVE YOURSELF.<br>EXPRESS YOURSELF.<br><i class="rainbow-line">Unlock your infinite potential.</i></p>
   <p class="mantra-ja">自分を愛する。<br>自分を表現する。<br>無限の可能性を解き放つ。</p>
-  <figure class="photo full"><img src="images/philosophy_friends.webp" alt="仲間と笑い合う三好 舞" style="height:380px;object-position:50% 42%"></figure>
+  <figure class="photo full"><img src="images/mugen_show_group.webp" alt="MUGEN のショーを終えて、笑顔で手を振る出演者と仲間たち" style="height:300px;object-position:50% 55%"></figure>
   <div class="body" style="margin-top:32px">
     <div class="tags"><span>年齢</span><span>肩書き</span><span>外見</span><span>経験</span></div>
     <p>そんな枠に、自分の可能性を閉じ込める必要はありません。</p>
@@ -362,9 +378,8 @@ footer a { color: inherit; }
     <p>そして、自分の無限の可能性を解き放つこと。</p>
   </div>
   <figure class="photo full award">
-    <img src="images/stage_a.webp" alt="WIVES INTERNATIONAL 2026 決勝の表彰式" style="height:280px">
+    <img src="images/mai_winner.webp" alt="WIVES INTERNATIONAL 2026 THE WINNER 三好 舞" style="height:460px;object-position:50% 30%">
     <div class="tag"><b>MAI MIYOSHI</b>THE WINNER<br>WIVES INTERNATIONAL 2026</div>
-    <figcaption style="padding-left:28px">WIVES INTERNATIONAL 2026 ／ BANGKOK</figcaption>
   </figure>
   <div class="body" style="margin-top:28px">
     <p>MUGENを通じて「自己表現・自己解放」をテーマに活動してきた三好舞は、2026年WIVES世界大会で総合グランプリを受賞しました。</p>
@@ -372,7 +387,7 @@ footer a { color: inherit; }
     <p>ふたつの想いが重なり、日本から新しいコンテストが始まります。</p>
   </div>
   <p class="pull">自己解放の、その先へ。</p>
-  <p class="center" style="font-size:15px">MUGENならではのエンターテインメントと愛を込めて、<br>WIVES INTERNATIONAL JAPANを開催します。</p>
+  <p class="center" style="font-size:15px">MUGENのエンターテインメントと愛を込めて、<br>WIVES INTERNATIONAL JAPANを開催します。</p>
   <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
 </section>
 
@@ -383,11 +398,11 @@ footer a { color: inherit; }
   <h2 class="en-h" style="font-size:34px">More than<br><i>a contest</i></h2>
   <h3 class="ja-h">この挑戦の先に待つ、<br>自分を信じられるあなた。</h3>
   <div class="cards">
-    <article class="card"><img src="images/exp_selflove.webp" alt="手鏡を見て微笑む女性" style="object-position:50% 30%"><div class="txt"><span class="num">01</span><h3>SELF LOVE</h3><span class="ja">自分を愛する</span><p>自分自身を知り、認め、受け入れる。</p></div></article>
-    <article class="card"><img src="images/exp_expression.webp" alt="ステージで笑顔を見せる三好 舞" style="object-position:50% 25%"><div class="txt"><span class="num">02</span><h3>SELF EXPRESSION</h3><span class="ja">自分を表現する</span><p>自分の想いや個性を自由に表現する。</p></div></article>
-    <article class="card"><img src="images/exp_transformation.webp" alt="ウォーキングのレッスン" style="object-position:55% 40%"><div class="txt"><span class="num">03</span><h3>TRANSFORMATION</h3><span class="ja">変化と成長</span><p>新しい挑戦を通して、自分の可能性を広げる。</p></div></article>
+    <article class="card"><img src="images/lesson_walking.webp" alt="ウォーキングのレッスンで微笑む三好 舞" style="object-position:55% 18%"><div class="txt"><span class="num">01</span><h3>SELF LOVE</h3><span class="ja">自分を愛する</span><p>自分自身を知り、認め、受け入れる。</p></div></article>
+    <article class="card"><img src="images/mugen_dance.webp" alt="色とりどりの衣装で踊る MUGEN のメンバー" style="object-position:50% 62%"><div class="txt"><span class="num">02</span><h3>SELF EXPRESSION</h3><span class="ja">自分を表現する</span><p>自分の想いや個性を自由に表現する。</p></div></article>
+    <article class="card"><img src="images/mai_stage.webp" alt="ステージで笑顔を見せる三好 舞" style="object-position:50% 25%"><div class="txt"><span class="num">03</span><h3>TRANSFORMATION</h3><span class="ja">変化と成長</span><p>新しい挑戦を通して、自分の可能性を広げる。</p></div></article>
     <article class="card"><img src="images/exp_connection.webp" alt="肩を寄せ合って笑う仲間たち" style="object-position:50% 38%"><div class="txt"><span class="num">04</span><h3>CONNECTION</h3><span class="ja">つながり</span><p>互いを認め、応援し合える仲間と出会う。</p></div></article>
-    <article class="card"><img src="images/exp_impact.webp" alt="大会後に喜び合う関係者たち" style="object-position:50% 50%"><div class="txt"><span class="num">05</span><h3>POSITIVE IMPACT</h3><span class="ja">幸せの連鎖</span><p>自分の輝きが、誰かの勇気になる。</p></div></article>
+    <article class="card"><img src="images/mai_sash_smile.webp" alt="たすきを掛けて笑い合う三好 舞と仲間" style="object-position:50% 35%"><div class="txt"><span class="num">05</span><h3>POSITIVE IMPACT</h3><span class="ja">幸せの連鎖</span><p>自分の輝きが、誰かの勇気になる。</p></div></article>
   </div>
   <p class="pull">あなたの輝きが、誰かの勇気となる。</p>
   <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
@@ -403,9 +418,9 @@ footer a { color: inherit; }
   <div class="route" id="route">
     <svg class="path" id="routePath" aria-hidden="true"></svg>
     <div class="stop"><div class="planet p1"></div><div class="info"><div class="pname">Departure</div><div class="what">無料面談</div><div class="when">随時</div><div class="note">想いや不安を聞かせてください。参加条件や費用もここでご案内します。一次募集をご希望の方は1月8日までにお申し込みください。</div></div></div>
-    <div class="stop r"><div class="planet p2"></div><div class="info"><div class="pname">Boarding</div><div class="what">エントリー</div><div class="when">一次募集 1.15 ／ 二次募集 2.2</div><div class="note">無料面談・お申し込み・ご入金までが完了した時点で、エントリーとなります。</div></div></div>
+    <div class="stop r"><div class="planet p2"></div><div class="info"><div class="pname">Boarding</div><div class="what">エントリー</div><div class="when">1月</div><div class="note">ご入金が完了した時点でエントリーとなります。</div></div></div>
     <div class="stop"><div class="planet p3"></div><div class="info"><div class="pname">Planet Bloom</div><div class="what">MUGEN BLOOM CAMP</div><div class="when">2027.2.13 SAT – 2.14 SUN</div><div class="note">1泊2日。自分を知り、自分を好きになる2日間。</div></div></div>
-    <div class="stop r"><div class="planet p4"></div><div class="info"><div class="pname">Orbit</div><div class="what">フォローアップ Zoom</div><div class="when">2月 – 3月</div><div class="note">進捗の確認や、大会に向けた心構えのアドバイス。2回（一次募集の方は3回）。</div></div></div>
+    <div class="stop r"><div class="planet p4"></div><div class="info"><div class="pname">Orbit</div><div class="what">フォローアップ Zoom</div><div class="when">1月 – 3月</div><div class="note">進捗の確認や、大会に向けた心構えのアドバイス。2月・3月に開催（一次募集の方は1月にも開催）。</div></div></div>
     <div class="stop"><div class="planet p5"></div><div class="info"><div class="pname">Shine</div><div class="what">MUGEN INFINITY SHOW</div><div class="when">2027.3.20 SAT</div><div class="note">日本大会。神戸・クラブ月世界。</div></div></div>
     <div class="stop r far"><div class="planet p6"></div><div class="info"><div class="pname">Beyond</div><div class="what">WIVES INTERNATIONAL 世界大会</div><div class="when">2027.5.31 – 6.7 ／ BANGKOK</div><div class="note">日本大会出場者から1〜3名程度に出場権。</div></div></div>
   </div>
@@ -417,7 +432,7 @@ footer a { color: inherit; }
   <div class="secno"><b>05</b><span class="label">Mugen Bloom Camp</span></div>
   <h2 class="ja-h">わたしが花開く、2日間。</h2>
   <p class="dates">2027.2.13 <span style="font-size:22px">SAT</span> –<br>2.14 <span style="font-size:22px">SUN</span><small>1 NIGHT ・ 2 DAYS</small></p>
-  <figure class="photo full" style="margin-top:28px"><img src="images/training.webp" alt="マインドのレッスンで輪になって座る参加者たち" style="height:240px"><figcaption style="padding-left:28px">WIVES INTERNATIONAL 2026 ／ TRAINING</figcaption></figure>
+  <figure class="photo full" style="margin-top:28px"><img src="images/mugen_lesson_group.webp" alt="レッスン後に手でハートを作る MUGEN の仲間たち" style="height:340px;object-position:50% 72%"></figure>
   <div class="body" style="margin-top:28px">
     <p>このビューティキャンプは、<br>美しくなるためだけの2日間じゃない。<br><b style="font-weight:600">自分を知り、自分を好きになるための2日間。</b></p>
     <p>さまざまな体験を通して、自分の魅力や可能性に気づき、本来の自分として輝く表現を見つけていきます。</p>
@@ -482,20 +497,21 @@ footer a { color: inherit; }
   <div class="msg-photo">
     <img src="images/mai_c.webp" alt="三好 舞">
   </div>
-  <h2 class="ja-h">自分の人生を、<br>自分として生きる。</h2>
+  <h2 class="ja-h">わたしは、<br>わたしを生きる。</h2>
   <div class="body">
-    <p>私は、世界大会への挑戦を通して、人生が大きく変わりました。</p>
-    <p>自分にはできないと思っていたことに挑戦し、蓋をしていた本来の自分に出会いました。</p>
-    <p>そして、自分の中に眠っていた自分の輝く姿が、誰かの勇気になる。</p>
-    <p>そんな開花が、私の人生の最大の転機でした。</p>
-    <p>この経験を、もっと多くの女性に届けたい。</p>
-    <p>一人ひとりが自分の可能性を信じ、自己表現できる世界。</p>
-    <p>そして、愛と幸せが広がる未来を、みなさんと一緒に創っていきたいと思っています。</p>
+    <p>私は世界大会への挑戦を通して、人生が大きく変わりました。</p>
+    <p>自分にはできないと思っていたことに挑戦し、蓋をしていた本来の自分に出会うことができました。</p>
+    <p>そして、心のままに自分を表現することで、人生はこんなにも輝き始めるのだと知りました。</p>
+    <p>だからこそ、この経験をもっと多くの女性に届けたい。</p>
+    <p>自分の可能性を信じ、一歩踏み出してほしい。</p>
+    <p>一人ひとりが自分を解き放ち、輝くことで、その光が誰かの勇気となり、愛と幸せの連鎖が広がっていく。</p>
+    <p>そんな未来を、みなさんと一緒に創っていきたいと思っています。</p>
   </div>
   <p class="motto">Be unapologetically<br>yourself.</p>
+  <p class="motto-ja">本来の自分を、堂々と生きよう。</p>
   <div class="sign">
-    <div class="name">三好 舞</div>
     <span class="label">Wives International Japan<br>National Director</span>
+    <div class="name">三好 舞</div>
   </div>
   <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
 </section>
@@ -539,13 +555,13 @@ footer a { color: inherit; }
       <span class="k first">一次募集<small>2027.1.15 FRI まで</small></span><span class="v">198,000<small>円（税込）</small></span>
       <span class="k">二次募集<small>2027.2.2 TUE まで</small></span><span class="v">220,000<small>円（税込）</small></span>
     </div>
-    <p class="fine">※大会に向けての個人プロデュース（衣装コーディネート）、フォローアップZoom2回、合宿講座、コンテスト参加費を含む。</p>
-    <p class="fine">※衣装の購入・レンタル費用は含まれません。個人プロデュースの内容は、一人ひとりに合わせて無料面談でご案内します。</p>
-    <p class="fine">※一次募集での参加特典として、フォローアップZoomが更に1回受講できます。</p>
-    <p class="fine" style="margin-top:12px">※エントリーは、無料面談・お申し込み・ご入金（着金）がすべて完了した日を基準とします。</p>
+    <p class="fine">※大会に向けての2月・3月のフォローアップZoom、合宿講座、コンテスト参加費を含む。</p>
+    <p class="fine">※衣装はご自身でご準備ください。諸経費については無料面談でも詳しくお伝えいたします。</p>
+    <p class="fine">※一次募集での参加特典として、1月のフォローアップZoomを開催します。</p>
+    <p class="fine" style="margin-top:12px">※エントリーはご入金（着金）の日を基準とします。</p>
     <p class="fine">※一次募集をご希望の方は、2027年1月8日（金）までに無料面談をお申し込みください。</p>
-    <p class="fine">※一次募集の期限までに着金が確認できない場合は、二次募集の参加費となります。</p>
-    <p class="fine">※二次募集の期限（2027年2月2日）をもって募集を締め切ります。</p>
+    <p class="fine">※一次募集の期限までに着金が確認できない場合は、二次募集でのご参加となります。</p>
+    <p class="fine">※二次募集のご入金期限（2027年2月2日）をもって募集を締め切ります。</p>
   </div>
 
   <div class="block">
