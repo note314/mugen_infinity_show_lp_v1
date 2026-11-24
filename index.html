@@ -102,7 +102,7 @@ img { display: block; max-width: 100%; }
 /* CTA（リンク先未定の空のボタン） */
 .cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  min-width: 260px; padding: 18px 28px; border: 0; cursor: pointer;
+  min-width: 260px; padding: 18px 28px; border: 0; cursor: pointer; text-decoration: none;
   font-family: var(--serif-ja); font-size: 16px; letter-spacing: .14em; color: #fff;
   background: linear-gradient(100deg, #8d6b3f, var(--gold) 45%, #c9ac7c);
   box-shadow: 0 10px 24px rgba(168,135,90,.3);
@@ -281,6 +281,53 @@ img { display: block; max-width: 100%; }
 .price .v { font-family: var(--serif-en); font-size: 28px; line-height: 1.2; }
 .price .v small { font-family: var(--sans-ja); font-size: 11px; margin-left: 4px; }
 .fine { font-family: var(--sans-ja); font-size: 12px; color: var(--ink-soft); line-height: 1.8; margin: 4px 0 0; padding-left: 1em; text-indent: -1em; }
+
+/* ===== 09 募集・お申し込み（v2.0） ===== */
+.apply { padding-bottom: 72px; }
+.apply .body p { margin-bottom: 0; }
+.early { background: var(--white); border: 1px solid var(--gold-light); padding: 28px 20px; margin: 30px 0 0; box-shadow: 0 8px 22px rgba(120,95,60,.08); }
+.early-head { text-align: center; }
+.early-head h3 { font-family: var(--serif-ja); font-size: 24px; font-weight: 500; letter-spacing: .14em; margin: 4px 0 2px; }
+.early-head p { font-size: 14px; margin: 0; }
+.benefit { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 22px; }
+.benefit h4 { font-family: var(--serif-ja); font-size: 17px; font-weight: 500; line-height: 1.7; margin: 6px 0 14px; }
+.benefit p { font-size: 14px; line-height: 1.95; margin: 0 0 1em; }
+.benefit.center { text-align: center; }
+.profile { display: flex; gap: 16px; align-items: center; margin: 0 0 16px; }
+.profile img { width: 96px; height: 128px; object-fit: cover; flex: none; }
+.profile .label { white-space: nowrap; letter-spacing: .2em; }
+.profile .pname { font-family: var(--serif-ja); font-size: 19px; font-weight: 500; letter-spacing: .2em; margin-top: 2px; }
+.profile .psub { font-family: var(--sans-ja); font-size: 12.5px; color: var(--ink-soft); }
+.months { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 16px 0 14px; }
+.month { background: var(--paper); text-align: center; padding: 12px 4px; font-family: var(--sans-ja); font-size: 12px; line-height: 1.5; color: var(--ink-soft); }
+.month b { display: block; font-family: var(--serif-ja); font-size: 20px; font-weight: 500; color: var(--ink); }
+.month small { display: block; font-size: 10.5px; margin-top: 2px; }
+.month.first { background: linear-gradient(135deg, #8d6b3f, var(--gold) 55%, #c9ac7c); color: #fff; }
+.month.first b { color: #fff; }
+.accent { color: var(--gold); font-family: var(--serif-ja); font-weight: 500; text-align: center; }
+.apply .muted { font-family: var(--sans-ja); font-size: 12.5px; color: var(--ink-soft); }
+.early-price { font-family: var(--serif-en); font-size: 46px; line-height: 1.2; color: var(--ink); }
+.early-price small { font-family: var(--sans-ja); font-size: 13px; margin-left: 4px; }
+.deadline { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 22px; text-align: center; }
+.deadline p { font-size: 14px; margin: 0; }
+.deadline .date { font-family: var(--serif-ja); font-size: 24px; font-weight: 500; letter-spacing: .06em; margin: 2px 0; }
+.deadline .date small { font-size: 15px; }
+.deadline .cta { min-width: 0; width: 100%; margin: 18px 0 10px; font-size: 15px; letter-spacing: .1em; }
+.general { display: block; border: 1px solid var(--line); background: var(--white); padding: 18px 20px; margin: 16px 0 0; }
+.general-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.general-head h3 { font-family: var(--serif-ja); font-size: 18px; font-weight: 500; letter-spacing: .12em; margin: 2px 0; }
+.general-head b { font-family: var(--serif-en); font-size: 22px; font-weight: 400; }
+.general-head b small { font-family: var(--sans-ja); font-size: 11px; }
+.general p { font-size: 14px; margin: 4px 0 0; }
+.howto { margin-top: 48px; text-align: center; }
+.howto h3 { font-family: var(--serif-ja); font-size: 20px; font-weight: 500; letter-spacing: .1em; margin: 4px 0 18px; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 10px; text-align: left; }
+.steps li { counter-increment: step; background: var(--white); border: 1px solid var(--line); padding: 16px 18px; }
+.steps li::before { content: "STEP 0" counter(step); display: block; font-family: var(--label); font-size: 10px; letter-spacing: .25em; color: var(--gold); }
+.steps b { display: block; font-family: var(--serif-ja); font-size: 16px; font-weight: 500; margin: 2px 0 4px; }
+.steps p { font-size: 13.5px; line-height: 1.85; margin: 0; }
+.fee-notes { margin-top: 32px; }
+.fee-notes h4 { font-family: var(--serif-ja); font-size: 15px; font-weight: 500; margin: 0 0 6px; }
 
 /* ===== 結び ===== */
 .finale { text-align: center; padding: 100px 28px 90px; }
@@ -504,8 +551,8 @@ footer a { color: inherit; }
 
 <!-- ================= 08 ================= -->
 <section class="sec entry" id="s08">
-  <div class="secno"><b>08</b><span class="label">Entry Information</span></div>
-  <h2 class="ja-h">募集概要</h2>
+  <div class="secno"><b>08</b><span class="label">Event Overview</span></div>
+  <h2 class="ja-h">開催概要</h2>
   <p class="ttl">WIVES INTERNATIONAL JAPAN 2027<br><i>MUGEN Infinity Show</i></p>
 
   <div class="block">
@@ -532,24 +579,6 @@ footer a { color: inherit; }
     </dl>
   </div>
 
-  <div class="block" id="fee">
-    <div class="bh">
-      <svg viewBox="0 0 32 32"><path d="M6 12 L11 5 H21 L26 12 L16 28 Z"/><path d="M6 12 H26"/><path d="M11 5 L14 12 L16 28 L18 12 L21 5"/></svg>
-      <div><span>ENTRY FEE</span><b>参加費</b></div>
-    </div>
-    <div class="price">
-      <span class="k first">一次募集<small>2027.1.15 FRI まで</small></span><span class="v">198,000<small>円（税込）</small></span>
-      <span class="k">二次募集<small>2027.2.2 TUE まで</small></span><span class="v">220,000<small>円（税込）</small></span>
-    </div>
-    <p class="fine">※大会に向けての2月・3月のフォローアップZoom、合宿講座、コンテスト参加費を含む。</p>
-    <p class="fine">※衣装はご自身でご準備ください。諸経費については無料面談でも詳しくお伝えいたします。</p>
-    <p class="fine">※一次募集での参加特典として、1月のフォローアップZoomを開催します。</p>
-    <p class="fine" style="margin-top:12px">※エントリーはご入金（着金）の日を基準とします。</p>
-    <p class="fine">※一次募集をご希望の方は、2027年1月8日（金）までに無料面談をお申し込みください。</p>
-    <p class="fine">※一次募集の期限までに着金が確認できない場合は、二次募集でのご参加となります。</p>
-    <p class="fine">※二次募集のご入金期限（2027年2月2日）をもって募集を締め切ります。</p>
-  </div>
-
   <div class="block">
     <div class="bh">
       <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><path d="M4 16 H28"/><path d="M16 4 C10 10 10 22 16 28 C22 22 22 10 16 4"/></svg>
@@ -563,6 +592,88 @@ footer a { color: inherit; }
     <p class="fine">※開催日に有効なパスポートが必要です。</p>
     <p class="fine">※応募資格、審査基準、世界大会出場条件、別途費用などは無料面談でご案内しています。</p>
   </div>
+</section>
+
+<!-- ================= 09 募集・お申し込み（v2.0） ================= -->
+<section class="sec apply" id="s09">
+  <div class="secno"><b>09</b><span class="label">Entry Information</span></div>
+  <h2 class="ja-h">ひと足早く、<br>わたしの可能性を広げる。</h2>
+  <div class="body"><p>ステージに立つその日までの時間も、あなた自身と向き合う大切な時間です。</p></div>
+
+  <article class="early">
+    <header class="early-head">
+      <span class="label">Early Entry</span>
+      <h3>一次募集</h3>
+      <p>1月から始める、自己解放へのステップ。</p>
+    </header>
+
+    <div class="benefit">
+      <span class="label">Early Entry Benefit 01</span>
+      <h4>自己解放は、ステージに立つ前から始まっている。</h4>
+      <div class="profile">
+        <img src="images/mai_entry.webp" alt="三好 舞" width="600" height="800" loading="lazy">
+        <div>
+          <span class="label">WIVES 2026 WINNER</span>
+          <div class="pname">三好 舞</div>
+          <div class="psub">フォローアップZoom</div>
+        </div>
+      </div>
+      <p>2026年WinnerのMaiが、大会に向けたマインドセットをお伝えします。自分自身との向き合い方や日々の過ごし方を見つめ直し、小さな変化を積み重ねていく。その一日一日が、自己解放へとつながっていきます。</p>
+      <p>一次募集でご参加いただく方は、1月からセッションを受けられます。早く始めることで、学んだことを日常の中で実践する時間をより長く確保できます。</p>
+      <div class="months">
+        <div class="month first"><b>1月</b>Zoom<small>一次募集限定</small></div>
+        <div class="month"><b>2月</b>Zoom</div>
+        <div class="month"><b>3月</b>Zoom</div>
+      </div>
+      <p class="accent">自分と向き合う時間を、もっと長く。</p>
+    </div>
+
+    <div class="benefit center">
+      <span class="label">Early Entry Benefit 02</span>
+      <h4>早期参加特別価格</h4>
+      <p class="muted">二次募集参加費　220,000円（税込）</p>
+      <div class="early-price">198,000<small>円（税込）</small></div>
+      <p class="accent">22,000円の価格優遇</p>
+    </div>
+
+    <div class="deadline">
+      <p>無料面談お申し込み期限</p>
+      <div class="date">2027年1月8日<small>（金）</small></div>
+      <p class="muted">ご入金期限：1月15日（金）</p>
+      <a class="cta" href="#" data-cta>一次募集に向けた無料面談へ</a>
+      <p class="muted">まずは、あなたの想いや不安をお聞かせください。</p>
+    </div>
+  </article>
+
+  <article class="general">
+    <span class="label">General Entry</span>
+    <div class="general-head"><h3>二次募集</h3><b>220,000円<small>（税込）</small></b></div>
+    <p>2月・3月のフォローアップZoom付き</p>
+    <p class="muted">ご入金期限：2027年2月2日（火）</p>
+  </article>
+
+  <div class="howto">
+    <span class="label">How to Apply</span>
+    <h3>お申し込みの流れ</h3>
+    <ol class="steps">
+      <li><b>無料面談のお申し込み</b><p>一次募集をご希望の方は1月8日までにお申し込みください。</p></li>
+      <li><b>お申し込み</b><p>無料面談の内容をふまえて、参加をお申し込みください。</p></li>
+      <li><b>参加費のお支払い</b><p>一次募集：1月15日まで<br>二次募集：2月2日まで</p><p class="muted">着金日を基準に募集区分を適用します。</p></li>
+      <li><b>正式エントリー</b><p>ご入金の確認をもって正式エントリーとなります。</p></li>
+    </ol>
+  </div>
+
+  <div class="fee-notes">
+    <h4>参加費について</h4>
+    <p class="fine">※大会に向けての2月・3月のフォローアップZoom、合宿講座、コンテスト参加費を含む。</p>
+    <p class="fine">※衣装はご自身でご準備ください。諸経費については無料面談でも詳しくお伝えいたします。</p>
+    <p class="fine">※一次募集での参加特典として、1月のフォローアップZoomを開催します。</p>
+    <p class="fine" style="margin-top:12px">※エントリーはご入金（着金）の日を基準とします。</p>
+    <p class="fine">※一次募集をご希望の方は、2027年1月8日（金）までに無料面談をお申し込みください。</p>
+    <p class="fine">※一次募集の期限までに着金が確認できない場合は、二次募集でのご参加となります。</p>
+    <p class="fine">※二次募集のご入金期限（2027年2月2日）をもって募集を締め切ります。</p>
+  </div>
+  <div class="runner">WIVES INTERNATIONAL JAPAN 2027</div>
 </section>
 
 <!-- ================= 結び ================= -->
@@ -595,7 +706,7 @@ document.querySelectorAll('[data-cta]').forEach(a => {
 
 
 // スクロールで浮かび上がる要素（見出し・本文・写真・カード）
-const revealTargets = document.querySelectorAll('.secno, .ja-h, .body p, .photo, .card, .menu-bleed, .block, .pull, .quote, .motto, .finale > *');
+const revealTargets = document.querySelectorAll('.secno, .ja-h, .body p, .photo, .card, .menu-bleed, .block, .early, .general, .steps li, .pull, .quote, .motto, .finale > *');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
